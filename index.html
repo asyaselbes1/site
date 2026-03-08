@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antalya POMEM Atletic | POMEM • PMYO • BESYO • ASEM</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2e;
+      --muted:rgba(255,255,255,.72);
+      --text:rgba(255,255,255,.92);
+      --line:rgba(255,255,255,.12);
+
+      --accent1:#22c55e; /* WhatsApp */
+      --accent2:#4f46e5; /* Indigo */
+      --accent3:#f97316; /* Orange */
+      --accent4:#06b6d4; /* Cyan */
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(79,70,229,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(34,197,94,.25), transparent 55%),
+        radial-gradient(900px 500px at 90% 90%, rgba(249,115,22,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    .container{width:min(1120px, calc(100% - 40px)); margin-inline:auto}
+    .section{padding:88px 0}
+    .section-title{
+      font-size: clamp(24px, 3vw, 34px);
+      margin:0 0 14px;
+      letter-spacing:-.02em;
+    }
+    .section-sub{
+      margin:0 0 34px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:70ch;
+    }
+
+    /* Top bar / nav */
+    .topbar{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,.60);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800;
+      letter-spacing:-.02em;
+      white-space:nowrap;
+    }
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background: rgba(255,255,255,.04);
+    }
+
+    .navlinks{
+      display:flex; align-items:center; gap:18px;
+      color:rgba(255,255,255,.86);
+      font-weight:600;
+    }
+    .navlinks a{
+      padding:10px 10px;
+      border-radius:10px;
+      transition:.2s;
+      position:relative;
+    }
+    .navlinks a:hover{ background: rgba(255,255,255,.06); }
+
+    .nav-cta{display:flex; gap:10px; align-items:center;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:rgba(255,255,255,.92);
+      font-weight:800;
+      transition:.2s;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn:active{transform: translateY(0px)}
+    .btn-whatsapp{
+      border-color: rgba(34,197,94,.35);
+      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(34,197,94,.08));
+    }
+    .btn-whatsapp:hover{background: linear-gradient(135deg, rgba(34,197,94,.28), rgba(34,197,94,.12))}
+    .icon{width:18px;height:18px; display:inline-block}
+
+    /* Mobile menu */
+    .menu-btn{display:none}
+    @media (max-width: 860px){
+      .navlinks{display:none}
+      .menu-btn{display:inline-flex}
+      .nav-cta .btn:not(.menu-btn){display:none}
+    }
+    .mobile-drawer{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:10px 0 16px;
+    }
+    .mobile-drawer a{
+      display:block;
+      padding:12px 10px;
+      border-radius:12px;
+      color:rgba(255,255,255,.88);
+      font-weight:700;
+    }
+    .mobile-drawer a:hover{background: rgba(255,255,255,.06)}
+
+    /* Hero */
+    .hero{ padding: 26px 0 0; }
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 18px 60px rgba(0,0,0,.42);
+      min-height: 520px;
+      display:flex;
+      align-items: stretch;
+    }
+    .hero-media{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,18,32,.88) 0%, rgba(11,18,32,.58) 44%, rgba(11,18,32,.40) 100%),
+        url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1600&q=80");
+      background-size:cover;
+      background-position:center;
+      filter: saturate(1.05);
+      opacity: .95;
+    }
+    .hero-content{
+      position:relative; z-index:2;
+      padding: 56px 28px;
+      width: min(680px, 100%);
+    }
+    .hero-kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.84);
+      font-weight:700;
+      margin-bottom: 14px;
+    }
+    .hero-title{
+      font-size: clamp(30px, 4.2vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+      margin: 0 0 14px;
+      font-weight: 900;
+    }
+    .hero-text{
+      margin:0 0 22px;
+      color: var(--muted);
+      font-size: 16.5px;
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap: wrap;
+      align-items:center; margin-top: 16px;
+    }
+    .btn-primary{
+      border:none;
+      background: linear-gradient(135deg, rgba(79,70,229,.95), rgba(6,182,212,.75));
+      box-shadow: 0 16px 40px rgba(79,70,229,.22);
+    }
+    .btn-primary:hover{background: linear-gradient(135deg, rgba(79,70,229,1), rgba(6,182,212,.92))}
+    .btn-ghost{ background: rgba(255,255,255,.06); }
+
+    .hero-stats{
+      position:relative; z-index:2;
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      width: min(520px, 100%);
+    }
+    .stat{
+      padding:14px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .stat b{
+      display:block;
+      font-size: 18px;
+      letter-spacing:-.02em;
+      margin-bottom: 4px;
+    }
+    .stat span{color:var(--muted); font-size: 12.5px}
+    @media (max-width: 860px){
+      .hero-card{min-height: 560px}
+      .hero-stats{grid-template-columns:1fr}
+    }
+
+    /* Cards grid */
+    .grid{display:grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 14px;}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 34px rgba(0,0,0,.22);
+    }
+    .card h3{margin:0 0 8px; font-size:18px; letter-spacing:-.01em}
+    .card p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
+    .card-top{display:flex; align-items:center; justify-content:space-between; margin-bottom: 12px;}
+    .pill{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+    }
+    .course{grid-column: span 6; position:relative; overflow:hidden;}
+    @media (max-width: 900px){ .course{grid-column: span 12;} }
+
+    .course .cta{
+      margin-top: 14px;
+      width: 100%;
+      justify-content:center;
+      font-weight: 900;
+      border:none;
+      color:white;
+    }
+    .course .bg-glow{
+      position:absolute; inset:-60px -60px auto auto;
+      width:220px; height:220px; border-radius: 999px;
+      filter: blur(28px);
+      opacity:.25;
+      pointer-events:none;
+    }
+
+    .pomem{background: linear-gradient(135deg, rgba(30,58,138,.95), rgba(79,70,229,.7))}
+    .pmyo {background: linear-gradient(135deg, rgba(79,70,229,.95), rgba(6,182,212,.65))}
+    .besyo{background: linear-gradient(135deg, rgba(249,115,22,.95), rgba(244,63,94,.55))}
+    .asem {background: linear-gradient(135deg, rgba(5,150,105,.95), rgba(34,197,94,.65))}
+
+    /* ===== KAZANANLAR (GÖRSEL GALERİ) ===== */
+    .wins-grid{
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap: 14px;
+    }
+    .win-card{
+      grid-column: span 4;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: 0 10px 34px rgba(0,0,0,.22);
+      cursor:pointer;
+      transition:.2s;
+    }
+    .win-card:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06); }
+    .win-card img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      display:block;
+    }
+    @media (max-width: 900px){ .win-card{grid-column: span 6;} .win-card img{height:380px} }
+    @media (max-width: 520px){ .win-card{grid-column: span 12;} .win-card img{height:360px} }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.88);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding: 18px;
+    }
+    .lightbox.open{ display:flex; }
+    .lightbox-inner{
+      position:relative;
+      width:min(980px, 96vw);
+    }
+    .lightbox img{
+      width:100%;
+      max-height: 90vh;
+      object-fit:contain;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+    }
+    .lb-close{
+      position:absolute;
+      top:-14px; right:-14px;
+      width:44px; height:44px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(0,0,0,.55);
+      color:#fff;
+      font-size:26px;
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .lb-close:hover{ background: rgba(0,0,0,.75); }
+
+    /* Gallery (senin eski grid galerin aynen duruyor) */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap: 12px;
+    }
+    .shot{
+      grid-column: span 4;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      position:relative;
+      min-height: 220px;
+    }
+    .shot img{width:100%; height:100%; object-fit:cover; opacity:.92; transform: scale(1.02)}
+    .shot::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 45%, rgba(11,18,32,.60) 100%);
+    }
+    .shot span{
+      position:absolute; left:14px; bottom:14px;
+      z-index:2;
+      font-weight:900;
+      font-size:14px;
+      color: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    @media (max-width: 900px){ .shot{grid-column: span 6;} }
+    @media (max-width: 520px){ .shot{grid-column: span 12;} }
+
+    /* Contact */
+    .contact-grid .card{grid-column: span 6}
+    @media (max-width: 900px){ .contact-grid .card{grid-column: span 12} }
+    .contact-item{
+      display:flex; align-items:flex-start; gap:12px;
+      padding: 14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .contact-item b{display:block; margin-bottom: 4px}
+    .contact-item span{color:var(--muted)}
+    .social-row{display:flex; gap:10px; flex-wrap: wrap; margin-top: 12px;}
+    .social{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      font-weight: 900;
+      transition:.2s;
+    }
+    .social:hover{transform: translateY(-1px); background: rgba(255,255,255,.08)}
+    .social.wa{border-color: rgba(34,197,94,.35)}
+    .social.ig{
+      border-color: rgba(250,126,30,.35);
+      background: linear-gradient(135deg, rgba(214,41,118,.20), rgba(250,126,30,.10));
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding: 30px 0;
+      color: rgba(255,255,255,.72);
+    }
+
+    .float-wa{
+      position:fixed;
+      right:18px; bottom:18px;
+      z-index:110;
+      width:56px; height:56px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.18);
+      border:1px solid rgba(34,197,94,.35);
+      display:flex; align-items:center; justify-content:center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      transition:.2s;
+    }
+    .float-wa:hover{transform: translateY(-2px); background: rgba(34,197,94,.26)}
+/* ===== GALLERY SLIDER ===== */
+.g-wrap{
+  position:relative;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 10px 34px rgba(0,0,0,.22);
+}
+
+.g-viewport{ overflow:hidden; }
+.g-track{
+  display:flex;
+  transition: transform .45s ease;
+  will-change: transform;
+}
+.g-slide{
+  flex: 0 0 100%;
+}
+.g-slide img{
+  width:100%;
+  height: 520px;
+  object-fit: cover;
+  display:block;
+  cursor: zoom-in;
+  opacity: .95;
+}
+@media (max-width: 900px){ .g-slide img{ height: 420px; } }
+@media (max-width: 520px){ .g-slide img{ height: 340px; } }
+
+.g-arrow{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:44px; height:44px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.20);
+  background: rgba(0,0,0,.55);
+  color:#fff;
+  font-size: 22px;
+  cursor:pointer;
+  z-index: 3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.g-arrow:hover{ background: rgba(0,0,0,.75); }
+.g-left{ left:12px; }
+.g-right{ right:12px; }
+
+.g-dots{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top: 14px;
+}
+.g-dot{
+  width:10px; height:10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.10);
+  cursor:pointer;
+}
+.g-dot.active{
+  background: rgba(249,115,22,.85);
+  border-color: rgba(249,115,22,.85);
+}
+/* ===== 3'lü Galeri Slider (Ortası büyük) ===== */
+.slider-3{
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+}
+
+.slider-3 .slides{
+  display: flex;
+  transition: transform .45s ease;
+  will-change: transform;
+}
+
+.slider-3 .slide{
+  flex: 0 0 calc(100% / 3);
+  padding: 10px;
+  transition: transform .35s ease, opacity .35s ease;
+  opacity: .75;
+  transform: scale(.92);
+}
+
+.slider-3 .slide.is-active{
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.slider-3 .slide img{
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  display:block;
+  cursor: pointer;
+}
+
+@media (max-width: 900px){
+  .slider-3 .slide{ flex-basis: 100%; }
+  .slider-3 .slide img{ height: 360px; }
+}
+@media (max-width: 520px){
+  .slider-3 .slide img{ height: 320px; }
+}
+
+/* Oklar (seninkiler varsa kullanabilirsin) */
+.slider-3 .slide-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.6);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+.slider-3 .slide-btn:hover{ background: rgba(0,0,0,.8); }
+.slider-3 .prev{ left: 15px; }
+.slider-3 .next{ right: 15px; }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          Antalya POMEM Atletic
+          <span class="badge">POMEM • PMYO • BESYO • ASEM</span>
+        </div>
+
+        <div class="navlinks" aria-label="Ana menü">
+          <a href="#anasayfa">Ana Sayfa</a>
+          <a href="#egitim">Eğitim</a>
+          <a href="#kazananlar">Kazananlar</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#iletisim">İletişim</a>
+        </div>
+
+        <div class="nav-cta">
+          <a class="btn btn-whatsapp" href="https://wa.me/905436572307?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+            </svg>
+            WhatsApp
+          </a>
+
+          <button class="btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileDrawer">
+            Menü
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#egitim">Eğitim</a>
+        <a href="#kazananlar">Kazananlar</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#iletisim">İletişim</a>
+        <a class="btn btn-whatsapp" style="margin-top:10px; width:100%; justify-content:center"
+           href="https://wa.me/905436572307?text=Merhaba%2C%20bilgi%20almak%20istiyorum."
+           target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+          </svg>
+          WhatsApp’tan Yaz
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container hero" id="anasayfa">
+    <div class="hero-card">
+      <div class="hero-media" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-kicker">Antalya’da Profesyonel Parkur Hazırlık Programı</div>
+        <h1 class="hero-title">POMEM • PMYO • BESYO • ASEM için disiplinli, hedef odaklı antrenman.</h1>
+        <p class="hero-text">
+          Parkur, kondisyon, teknik ve mülakat sürecini tek programda birleştiriyoruz.
+          Fotoselli süre ölçümü ve düzenli performans takibi ile süreci profesyonel yönetiyoruz.
+          <br><br>
+          Sabah ve akşam çalışma grupları, sözlü mülakat eğitimi ve provası,
+          ön sağlık mülakatı değerlendirmesi.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://wa.me/905436572307?text=Merhaba%2C%20daha%20fazla%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+            </svg>
+            Daha Fazla Bilgi Al
+          </a>
+
+          <a class="btn btn-ghost" href="#egitim">Programı İncele</a>
+        </div>
+
+        <div class="hero-stats" aria-label="Öne çıkanlar">
+          <div class="stat"><b>Parkur + Kondisyon</b><span>Teknik + hız + dayanıklılık</span></div>
+          <div class="stat"><b>Performans Takibi</b><span>Düzenli ölçüm ve gelişim grafiği</span></div>
+          <div class="stat"><b>Birebir Koçluk</b><span>Hedefe göre program planlama</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- EĞİTİM -->
+  <section class="section" id="egitim">
+    <div class="container">
+      <h2 class="section-title">Eğitim</h2>
+      <p class="section-sub">
+        Adayın hedefine göre (POMEM / PMYO / BESYO / ASEM) parkur teknikleri, kondisyon ve sınav stratejisini birlikte yürütüyoruz.
+        Her kurs için ayrı WhatsApp butonu ile hızlı iletişim sağlayabilirsiniz.
+      </p>
+
+      <div class="grid">
+        <div class="card course">
+          <div class="bg-glow" style="background: rgba(79,70,229,1);"></div>
+          <div class="card-top">
+            <h3>POMEM Hazırlık</h3>
+            <span class="pill">Parkur • Kondisyon • Mülakat</span>
+          </div>
+          <p>Polis Meslek Eğitim Merkezi süreci için hız, çeviklik ve dayanıklılığı hedefleyen program.</p>
+          <a class="btn cta pomem"
+             href="https://wa.me/905436572307?text=Merhaba%2C%20POMEM%20kursu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+            </svg>
+            Bizimle İletişime Geç
+          </a>
+        </div>
+
+        <div class="card course">
+          <div class="bg-glow" style="background: rgba(6,182,212,1);"></div>
+          <div class="card-top">
+            <h3>PMYO Hazırlık</h3>
+            <span class="pill">Teknik • Tempo • Dayanıklılık</span>
+          </div>
+          <p>Polis Meslek Yüksekokulu için parkur tekniği ve düzenli tempo çalışmaları.</p>
+          <a class="btn cta pmyo"
+             href="https://wa.me/905436572307?text=Merhaba%2C%20PMYO%20kursu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+            </svg>
+            Bizimle İletişime Geç
+          </a>
+        </div>
+
+        <div class="card course">
+          <div class="bg-glow" style="background: rgba(249,115,22,1);"></div>
+          <div class="card-top">
+            <h3>BESYO Hazırlık</h3>
+            <span class="pill">Koordinasyon • Güç • Teknik</span>
+          </div>
+          <p>BESYO parkuruna özel koordinasyon, güç ve teknik odaklı antrenmanlar.</p>
+          <a class="btn cta besyo"
+             href="https://wa.me/905436572307?text=Merhaba%2C%20BESYO%20kursu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+            </svg>
+            Bizimle İletişime Geç
+          </a>
+        </div>
+
+        <div class="card course">
+          <div class="bg-glow" style="background: rgba(34,197,94,1);"></div>
+          <div class="card-top">
+            <h3>ASEM Hazırlık</h3>
+            <span class="pill">Fiziki Yeterlilik • Disiplin</span>
+          </div>
+          <p>ASEM fiziki yeterlilik standartlarına uygun çalışma planı ve düzenli testler.</p>
+          <a class="btn cta asem"
+             href="https://wa.me/905436572307?text=Merhaba%2C%20ASEM%20kursu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+            </svg>
+            Bizimle İletişime Geç
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KAZANANLAR (GÖRSEL) -->
+<section class="section" id="kazananlar">
+  <div class="container">
+    <h2 class="section-title">Dönem Dönem Kazananlar</h2>
+    <p class="section-sub">Görsele tıkla → büyüt.</p>
+
+    <div class="wins-grid">
+      <div class="win-card js-win">
+        <img alt="28. Dönem" src="donem28.png.png" loading="lazy">
+      </div>
+
+      <div class="win-card js-win">
+        <img alt="29. Dönem" src="donem29.png.png" loading="lazy">
+      </div>
+
+      <div class="win-card js-win">
+        <img alt="30. Dönem" src="donem30.png.png" loading="lazy">
+      </div>
+
+      <div class="win-card js-win">
+        <img alt="31. Dönem" src="donem31.png.png" loading="lazy">
+      </div>
+
+      <div class="win-card js-win">
+        <img alt="32. Dönem" src="donem32.png.png" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+ <!-- GALERİ -->
+<section class="section" id="galeri">
+  <div class="container">
+    <h2 class="section-title">Galeri</h2> 
+ <div class="slider slider-3">
+  <button class="slide-btn prev" type="button" aria-label="Önceki">&#10094;</button>
+
+  <div class="slides" id="slidesTrack">
+    <!-- JS burada otomatik clone yapacak; buraya SADECE gerçek resimleri koyuyoruz -->
+    <div class="slide"><img src="IMG_8554.JPG" alt=""></div>
+    <div class="slide"><img src="IMG_8559.JPG" alt=""></div>
+    <div class="slide"><img src="IMG_8568.JPG" alt=""></div>
+    <div class="slide"><img src="20260223_204603-_1_.jpg" alt=""></div>
+    <div class="slide"><img src="IMG_9026.JPG" alt=""></div>
+    <div class="slide"><img src="IMG_20220117_221737_394.jpg" alt=""></div>
+    <div class="slide"><img src="IMG_20221021_195706.jpg" alt=""></div>
+    <div class="slide"><img src="IMG_20240103_110612.jpg" alt=""></div>
+    <div class="slide"><img src="20260223_204720.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20221103-WA0012.jpg" alt=""></div>
+    <div class="slide"><img src="IMG_8449.JPG" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0077.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0171.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0170.jpg" alt=""></div>
+    <div class="slide"><img src="20260223_202425.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0087.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0093.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0127.jpg" alt=""></div>
+    <div class="slide"><img src="IMG-20260228-WA0133.jpg" alt=""></div>
+
+
+<div class="slide"><img src="20260223_202839-_2_.jpg" alt=""></div>
+      
+  </div>
+
+  <button class="slide-btn next" type="button" aria-label="Sonraki">&#10095;</button>
+</div>
+</section>
+  <!-- İLETİŞİM -->
+  <section class="section" id="iletisim">
+    <div class="container">
+      <h2 class="section-title">İletişim</h2>
+      <p class="section-sub">
+        Aşağıdaki butonlardan WhatsApp veya Instagram ile hızlıca ulaşabilirsin.
+      </p>
+
+      <div class="grid contact-grid">
+        <div class="card">
+          <div class="contact-item">
+            <div class="avatar" aria-hidden="true">☎</div>
+            <div>
+              <b>WhatsApp</b>
+              <span>+90 543 657 23 07</span>
+              <div class="social-row">
+                <a class="social wa" target="_blank" rel="noopener noreferrer"
+                   href="https://wa.me/905436572307?text=Merhaba%2C%20bilgi%20almak%20istiyorum.">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+                  </svg>
+                  WhatsApp’tan Yaz
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="contact-item">
+            <div class="avatar" aria-hidden="true">📸</div>
+            <div>
+              <b>Instagram</b>
+              <span>@antalyapomem_atletic</span>
+              <div class="social-row">
+                <a class="social ig" target="_blank" rel="noopener noreferrer"
+                   href="https://www.instagram.com/antalyapomem_atletic/">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm6.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+                  </svg>
+                  Instagram’a Git
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="container">
+        © 2026 Antalya POMEM Atletic • Tüm Hakları Saklıdır
+      </footer>
+    </div>
+  </section>
+
+  <a class="float-wa" target="_blank" rel="noopener noreferrer"
+     href="https://wa.me/905436572307?text=Merhaba%2C%20bilgi%20almak%20istiyorum."
+     aria-label="WhatsApp ile yaz">
+    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:24px;height:24px">
+      <path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.5 3.72 1.38 5.28L2 22l5-1.5c1.5.78 3.18 1.2 5.04 1.2 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.76c-1.62 0-3.18-.42-4.5-1.2l-.3-.18-2.94.9.9-2.88-.18-.3c-.9-1.38-1.38-3-1.38-4.62 0-4.74 3.84-8.58 8.58-8.58s8.58 3.84 8.58 8.58-3.84 8.58-8.58 8.58z"/>
+    </svg>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lb-close" id="lbClose" aria-label="Kapat">×</button>
+      <img id="lbImg" alt="Büyük görsel">
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const drawer = document.getElementById('mobileDrawer');
+
+    function closeDrawer(){
+      drawer.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn?.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if(isOpen){
+        closeDrawer();
+      }else{
+        drawer.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    drawer?.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeDrawer());
+    });
+
+    // Kazananlar Lightbox
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbClose = document.getElementById('lbClose');
+
+function openLB(src, alt){
+  lbImg.src = src;
+  lbImg.alt = alt || 'Büyük görsel';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lbImg.src = '';
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.js-win').forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('img');
+    if(img) openLB(img.src, img.alt);
+  });
+});
+
+lbClose.addEventListener('click', closeLB);
+lightbox.addEventListener('click', (e)=>{
+  if(e.target === lightbox) closeLB();
+});
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLB();
+});    function openLB(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || 'Büyük görsel';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLB(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.js-win').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const img = card.querySelector('img');
+    openLB(img.src, img.alt);
+  });
+});
+    lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e)=>{
+      if(e.target === lightbox) closeLB();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLB();
+    });
+  // ===== GALERİ SLIDER =====
+  let gIndex = 0;
+  const gTrack = document.getElementById('gTrack');
+  const gSlides = gTrack ? Array.from(gTrack.children) : [];
+  const gDots = document.getElementById('gDots');
+
+  function gRenderDots(){
+    if(!gDots) return;
+    gDots.innerHTML = '';
+    gSlides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'g-dot' + (i === gIndex ? ' active' : '');
+      b.setAttribute('aria-label', `Galeri ${i+1}`);
+      b.addEventListener('click', () => { gIndex = i; gUpdate(); });
+      gDots.appendChild(b);
+    });
+  }
+
+  function gUpdate(){
+    if(!gTrack) return;
+    gTrack.style.transform = `translateX(-${gIndex * 100}%)`;
+    if(gDots){
+      [...gDots.children].forEach((d, i) => d.classList.toggle('active', i === gIndex));
+    }
+  }
+
+  function gNext(){
+    if(!gSlides.length) return;
+    gIndex = (gIndex + 1) % gSlides.length;
+    gUpdate();
+  }
+
+  function gPrev(){
+    if(!gSlides.length) return;
+    gIndex = (gIndex - 1 + gSlides.length) % gSlides.length;
+    gUpdate();
+  }
+
+  // Tıkla büyüt (lightbox)
+  window.addEventListener('DOMContentLoaded', () => {
+    if(!gSlides.length) return;
+
+    gRenderDots();
+    gUpdate();
+
+    document.querySelectorAll('#galeri .g-slide img').forEach(img => {
+      img.addEventListener('click', () => openLB(img.src, img.alt));
+    });
+  });
+
+  // Klavye oklarıyla kontrol (galeri bölümündeyken güzel oluyor)
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') gNext();
+    if(e.key === 'ArrowLeft') gPrev();
+  });
+// ===== 3'lü Galeri Slider =====
+const track = document.getElementById('slidesTrack');
+const prevBtn = document.querySelector('.slider-3 .prev');
+const nextBtn = document.querySelector('.slider-3 .next');
+
+if(track && prevBtn && nextBtn){
+  // Gerçek slide'ları al
+  let slides = Array.from(track.querySelectorAll('.slide'));
+  const realCount = slides.length;
+
+  // Clone (sonsuz döngü için)
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone  = slides[slides.length - 1].cloneNode(true);
+
+  track.insertBefore(lastClone, slides[0]);
+  track.appendChild(firstClone);
+
+  // Yeni slide listesi
+  slides = Array.from(track.querySelectorAll('.slide'));
+
+  let index = 1; // 1 = ilk gerçek görsel (ortada)
+  let isAnimating = false;
+
+  function slideWidthPercent(){
+    // Desktop: 3'lü => 33.333... ; Mobile: 1'li => 100
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+    return isMobile ? 100 : (100/3);
+  }
+
+  function setActive(){
+    slides.forEach(s => s.classList.remove('is-active'));
+    // Ortadaki: index (clone dahil)
+    if(slides[index]) slides[index].classList.add('is-active');
+  }
+
+  function update(animate=true){
+    const w = slideWidthPercent();
+    if(!animate){
+      track.style.transition = 'none';
+    }else{
+      track.style.transition = 'transform .45s ease';
+    }
+    track.style.transform = `translateX(-${(index - 1) * w}%)`;
+    setActive();
+    if(!animate){
+      // reflow
+      void track.offsetHeight;
+      track.style.transition = 'transform .45s ease';
+    }
+  }
+
+  function next(){
+    if(isAnimating) return;
+    isAnimating = true;
+    index++;
+    update(true);
+  }
+
+  function prev(){
+    if(isAnimating) return;
+    isAnimating = true;
+    index--;
+    update(true);
+  }
+
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+
+  track.addEventListener('transitionend', () => {
+    // Clone'a geldiysek gerçek index'e zıpla
+    if(index === slides.length - 1){ // firstClone
+      index = 1;
+      update(false);
+    }
+    if(index === 0){ // lastClone
+      index = slides.length - 2;
+      update(false);
+    }
+    isAnimating = false;
+  });
+
+  // Lightbox: tıklayınca büyüt
+  track.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('click', () => {
+      if(typeof openLB === 'function') openLB(img.src, img.alt);
+    });
+  });
+
+  // İlk çizim
+  window.addEventListener('load', () => update(false));
+  window.addEventListener('resize', () => update(false));
+}
+  </script>
+
+</body>
+</html>
